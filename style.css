@@ -1,26 +1,27 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f7f7f7;
-  color: #333;
+  color: #fff;
+  background: url('https://images.unsplash.com/photo-1561154464-82e9f6e25c8e?auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed;
+  background-size: cover;
 }
 
 header {
-  background: #222;
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 30px 20px;
   text-align: center;
 }
 
 nav {
-  background: #444;
+  background: rgba(20, 20, 20, 0.9);
   text-align: center;
   padding: 10px;
 }
 
 nav a {
-  color: white;
+  color: #ffcc00;
   margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
@@ -28,7 +29,9 @@ nav a {
 
 .section {
   padding: 40px 20px;
-  text-align: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  margin: 20px;
+  border-radius: 10px;
 }
 
 .products {
@@ -39,11 +42,16 @@ nav a {
 }
 
 .product {
-  background: white;
+  background: #111;
   padding: 20px;
   border-radius: 8px;
   width: 250px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.product:hover {
+  transform: scale(1.05);
 }
 
 .product img {
@@ -51,22 +59,29 @@ nav a {
   border-radius: 4px;
 }
 
+.price {
+  color: #ffcc00;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
 button {
-  background-color: #28a745;
-  color: white;
+  background-color: #ffcc00;
+  color: #000;
   border: none;
   padding: 10px;
   margin-top: 10px;
   cursor: pointer;
   border-radius: 4px;
+  font-weight: bold;
 }
 
 button:hover {
-  background-color: #218838;
+  background-color: #e6b800;
 }
 
 footer {
-  background: #222;
+  background: rgba(0, 0, 0, 0.8);
   color: white;
   text-align: center;
   padding: 15px;
