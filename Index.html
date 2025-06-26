@@ -5,6 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Karts Parts</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .cart-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #222;
+      color: #fff;
+      padding: 10px 20px;
+    }
+    .cart-bar input {
+      padding: 5px;
+      border-radius: 4px;
+      border: none;
+      width: 200px;
+    }
+    .cart-count {
+      background: #ffcc00;
+      color: #000;
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-weight: bold;
+    }
+    .checkout-button {
+      background-color: #ffcc00;
+      border: none;
+      padding: 8px 15px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .checkout-button:hover {
+      background-color: #e6b800;
+    }
+
+    @media (max-width: 600px) {
+      .products {
+        flex-direction: column;
+        align-items: center;
+      }
+      .cart-bar {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,36 +64,44 @@
     <a href="#contact">Contact</a>
   </nav>
 
+  <div class="cart-bar">
+    <input type="text" id="searchBar" placeholder="Search products..." onkeyup="filterProducts()" />
+    <div>
+      <span>🛒 Cart: <span class="cart-count" id="cartCount">0</span></span>
+      <button class="checkout-button" onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
   <section id="shop" class="section">
     <h2>Product Page</h2>
-    <div class="products">
+    <div class="products" id="productList">
       <div class="product">
         <img src="https://via.placeholder.com/250x150.png?text=Racing+Clutch" alt="Racing Clutch" />
         <h3>Racing Clutch</h3>
         <p>Heavy-duty 10T clutch for 212cc engines.</p>
         <p class="price">$59.99</p>
-        <button>Buy Now</button>
+        <button onclick="addToCart('Racing Clutch')">Add to Cart</button>
       </div>
       <div class="product">
         <img src="https://via.placeholder.com/250x150.png?text=Carburetor" alt="High-Performance Carburetor" />
         <h3>Performance Carburetor</h3>
         <p>Tuned for top-end power gains.</p>
         <p class="price">$89.99</p>
-        <button>Buy Now</button>
+        <button onclick="addToCart('Performance Carburetor')">Add to Cart</button>
       </div>
       <div class="product">
         <img src="https://via.placeholder.com/250x150.png?text=Exhaust+Kit" alt="Predator 212 Exhaust Kit" />
         <h3>212cc Exhaust Kit</h3>
         <p>Mandrel bent, TIG welded performance pipe.</p>
         <p class="price">$44.99</p>
-        <button>Buy Now</button>
+        <button onclick="addToCart('Exhaust Kit')">Add to Cart</button>
       </div>
       <div class="product">
         <img src="https://via.placeholder.com/250x150.png?text=Chain+Tensioner" alt="Chain Tensioner" />
         <h3>Chain Tensioner</h3>
         <p>Universal chain tensioner with bracket.</p>
         <p class="price">$24.99</p>
-        <button>Buy Now</button>
+        <button onclick="addToCart('Chain Tensioner')">Add to Cart</button>
       </div>
     </div>
   </section>
@@ -65,6 +119,34 @@
   <footer>
     <p>&copy; 2025 Karts Parts. All rights reserved.</p>
   </footer>
+
+  <script>
+    let cartCount = 0;
+
+    function addToCart(itemName) {
+      cartCount++;
+      document.getElementById("cartCount").innerText = cartCount;
+      alert(itemName + " added to cart!");
+    }
+
+    function checkout() {
+      if (cartCount === 0) {
+        alert("Your cart is empty!");
+      } else {
+        alert("Proceeding to checkout with " + cartCount + " item(s). (Checkout not yet implemented)");
+      }
+    }
+
+    function filterProducts() {
+      const input = document.getElementById("searchBar").value.toLowerCase();
+      const products = document.querySelectorAll(".product");
+
+      products.forEach(product => {
+        const name = product.querySelector("h3").innerText.toLowerCase();
+        product.style.display = name.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
 </body>
 </html>
 
