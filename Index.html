@@ -1,152 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Karts Parts</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .cart-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #222;
-      color: #fff;
-      padding: 10px 20px;
-    }
-    .cart-bar input {
-      padding: 5px;
-      border-radius: 4px;
-      border: none;
-      width: 200px;
-    }
-    .cart-count {
-      background: #ffcc00;
-      color: #000;
-      border-radius: 20px;
-      padding: 5px 10px;
-      font-weight: bold;
-    }
-    .checkout-button {
-      background-color: #ffcc00;
-      border: none;
-      padding: 8px 15px;
-      font-weight: bold;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-    .checkout-button:hover {
-      background-color: #e6b800;
-    }
-
-    @media (max-width: 600px) {
-      .products {
-        flex-direction: column;
-        align-items: center;
-      }
+-<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Karts Parts</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
       .cart-bar {
-        flex-direction: column;
-        gap: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #222;
+        color: #fff;
+        padding: 10px 20px;
       }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Karts Parts</h1>
-    <p>Your One-Stop Shop for Go-Kart Performance</p>
-  </header>
-
-  <nav>
-    <a href="#shop">Shop</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <div class="cart-bar">
-    <input type="text" id="searchBar" placeholder="Search products..." onkeyup="filterProducts()" />
-    <div>
-      <span>🛒 Cart: <span class="cart-count" id="cartCount">0</span></span>
-      <button class="checkout-button" onclick="checkout()">Checkout</button>
-    </div>
-  </div>
-
-  <section id="shop" class="section">
-    <h2>Product Page</h2>
-    <div class="products" id="productList">
-      <div class="product">
-        <img src="https://via.placeholder.com/250x150.png?text=Racing+Clutch" alt="Racing Clutch" />
-        <h3>Racing Clutch</h3>
-        <p>Heavy-duty 10T clutch for 212cc engines.</p>
-        <p class="price">$59.99</p>
-        <button onclick="addToCart('Racing Clutch')">Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/250x150.png?text=Carburetor" alt="High-Performance Carburetor" />
-        <h3>Performance Carburetor</h3>
-        <p>Tuned for top-end power gains.</p>
-        <p class="price">$89.99</p>
-        <button onclick="addToCart('Performance Carburetor')">Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/250x150.png?text=Exhaust+Kit" alt="Predator 212 Exhaust Kit" />
-        <h3>212cc Exhaust Kit</h3>
-        <p>Mandrel bent, TIG welded performance pipe.</p>
-        <p class="price">$44.99</p>
-        <button onclick="addToCart('Exhaust Kit')">Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/250x150.png?text=Chain+Tensioner" alt="Chain Tensioner" />
-        <h3>Chain Tensioner</h3>
-        <p>Universal chain tensioner with bracket.</p>
-        <p class="price">$24.99</p>
-        <button onclick="addToCart('Chain Tensioner')">Add to Cart</button>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="section">
-    <h2>About Us</h2>
-    <p>Karts Parts is a dedicated online store offering the best quality parts for DIY go-kart builders and racers. Whether you ride for fun or competition, we've got the parts to boost your performance.</p>
-  </section>
-
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Email us at <a href="mailto:support@kartsparts.com">support@kartsparts.com</a></p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Karts Parts. All rights reserved.</p>
-  </footer>
-
-  <script>
-    let cartCount = 0;
-
-    function addToCart(itemName) {
-      cartCount++;
-      document.getElementById("cartCount").innerText = cartCount;
-      alert(itemName + " added to cart!");
-    }
-
-    function checkout() {
-      if (cartCount === 0) {
-        alert("Your cart is empty!");
-      } else {
-        alert("Proceeding to checkout with " + cartCount + " item(s). (Checkout not yet implemented)");
+      .cart-bar input {
+        padding: 5px;
+        border-radius: 4px;
+        border: none;
+        width: 200px;
       }
-    }
+      .cart-count {
+        background: #ffcc00;
+        color: #000;
+        border-radius: 20px;
+        padding: 5px 10px;
+        font-weight: bold;
+      }
+      .checkout-button {
+        background-color: #ffcc00;
+        border: none;
+        padding: 8px 15px;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      .checkout-button:hover {
+        background-color: #e6b800;
+      }
 
-    function filterProducts() {
-      const input = document.getElementById("searchBar").value.toLowerCase();
-      const products = document.querySelectorAll(".product");
+      @media (max-width: 600px) {
+        .products {
+          flex-direction: column;
+          align-items: center;
+        }
+        .cart-bar {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Karts Parts!</h1>
+      <p>Your One-Stop Shop for Go-Kart Performance.
+        Designed by drivers for drivers</p>
+    </header>
 
-      products.forEach(product => {
-        const name = product.querySelector("h3").innerText.toLowerCase();
-        product.style.display = name.includes(input) ? "block" : "none";
-      });
-    }
-  </script>
-</body>
-</html>
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
 
+    </nav>
+
+    <div class="cart-bar">
+      <input type="text" id="searchBar" placeholder="Search products..." onkeyup="filterProducts()">
+      <div>
+        <span>🛒 Cart: <span class="cart-count" id="cartCount">0</span></span>
+        <button class="checkout-button" onclick="checkout()">Checkout</button>
+      </div>
+    </div>
+
+    <section id="shop" class="section">
+      <h2>Product Page</h2>
+      <div class="products" id="productList">
+        <div class="product">
+          <img src="https://cdn11.bigcommerce.com/s-dz8cplpgcq/images/stencil/1280x1280/products/451674/3174691/TD_NAC1315__1__84172.1749942165.jpg?c=2">
+          <h3>Noram Racing Clutch</h3>
+          <p>Heavy-duty 15T clutch for 212cc engines.</p>
+          <p class="price">$279.99</p>
+          <button onclick="addToCart('Racing Clutch')">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="data:image/jpeg;base64,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" alt="High-Performance Carburetor">
+          <h3>Nibbi Performance Carburetor</h3>
+          <p>Tuned for top-end power gains.</p>
+          <p class="price">$89.99</p>
+          <button onclick="addToCart('Performance Carburetor')">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="https://m.media-amazon.com/images/I/81-iv3CeDLL._UF894,1000_QL80_.jpg" alt="Predator 212 Exhaust Kit">
+          <h3>212cc Exhaust Kit</h3>
+          <p>Mandrel bent, TIG welded performance pipe.</p>
+          <p class="price">$44.99</p>
+          <button onclick="addToCart('Exhaust Kit')">Add to Cart</button>
+        </div>
+        <div class="product">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZL36D0ORtjHU12jJXln6RHTl75vfbw7gQQ&s" alt="Chain Tensioner">
+          <h3>Chain Tensioner</h3>
+          <p>Universal chain tensioner with bracket and hardware.</p>
+          <p class="price">$24.99</p>
+          <button onclick="addToCart('Chain Tensioner')">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About Us</h2>
+      <p>Karts Parts is a dedicated online store offering the best quality parts for DIY go-kart builders and racers. Whether you ride for fun or competition, we've got the parts to boost your performance.</p>
+    </section>
+
+    <section id="Secret" class="section">
+      <h2>Youtube Channel</h2>
+      <p>Channel Link <a href="https://www.youtube.com/@AC_Twig">https://www.youtube.com/@AC_Twig</a></p>
+    </section>
+
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Email us at <a href="mailto:support@kartsparts.com">support@kartsparts.com</a></p>
+    </section>
+
+    <footer>
+      <p>© 2025 Karts Parts. All rights reserved. If you stank... make it rank!</p>
+    </footer>
+  </body>
